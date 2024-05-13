@@ -1,4 +1,64 @@
-container: {type: DataRowPanel}
-components: []
+container:
+  type: DataRowPanel
+  data_bindings: []
+components:
+- type: Label
+  properties: {}
+  name: label_1
+  layout_properties: {column: NAXQDU}
+  data_bindings:
+  - {property: text, code: 'self.item[''account_no'']'}
+- type: Label
+  properties: {}
+  name: label_2
+  layout_properties: {column: EIUGBO}
+  data_bindings:
+  - {property: text, code: 'self.item[''size'']'}
+- type: Label
+  properties: {}
+  name: label_3
+  layout_properties: {column: KZTBRJ}
+  data_bindings:
+  - {property: text, code: 'self.item[''crust'']'}
+- type: Label
+  properties: {}
+  name: label_4
+  layout_properties: {column: GVERNO}
+  data_bindings:
+  - {property: text, code: 'self.item[''toppings'']'}
+- type: Label
+  properties: {}
+  name: label_5
+  layout_properties: {column: OVKZSQ}
+  data_bindings:
+  - {property: text, code: 'self.item[''status'']'}
+- type: Button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: 'Box
+
+      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: 'fa:arrows-alt'}
+  name: button_2
+  layout_properties: {column: BVSSNZ}
+  event_bindings: {click: button_2_click}
+- type: Button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: 'Bake
+
+      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: 'fa:stack-overflow'}
+  name: button_1
+  layout_properties: {column: NOJKTH}
+  event_bindings: {click: button_1_click}
+- type: Timer
+  properties: {interval: 1}
+  name: timer_1
+  event_bindings: {tick: timer_1_tick}
+- type: Timer
+  properties: {}
+  name: timer_2
+- type: Label
+  properties: {}
+  name: timer_label
+  layout_properties: {column: AQXNKG}
 is_package: true
-untouched: true
