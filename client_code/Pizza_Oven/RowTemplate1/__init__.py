@@ -9,6 +9,7 @@ class RowTemplate1(RowTemplate1Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.background = "lightblue"  # You can use any CSS color here
     self.countdown=0    # baking timer
     # Any code you write here will run before the form opens.
 
@@ -16,8 +17,8 @@ class RowTemplate1(RowTemplate1Template):
     """This method is called when the BAKE button is clicked"""
     self.item.update(status='Baking')
     self.refresh_data_bindings()
-    self.timer_1.interval=30
-    self.countdown = 2
+    self.timer_1.interval=1
+    self.countdown = 5
     pass
 
   def button_2_click(self, **event_args):
@@ -28,10 +29,12 @@ class RowTemplate1(RowTemplate1Template):
 
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    self.countdown -= 1
-    if self.countdown == 0:
-      self.row_color = Red
-    print (self.timer_1)
+    if self.countdown > 0:
+      print (self.countdown)
+      self.countdown -= 1
+      if self.countdown == 0:
+        self.background = "red"
+
     pass
 
 
