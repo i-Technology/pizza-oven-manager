@@ -73,8 +73,8 @@ components:
   event_bindings: {click: button_3_click}
 - type: Label
   properties: {}
-  name: price
+  name: price1
   layout_properties: {column: IVRXCY}
   data_bindings:
-  - {property: text, code: 'self.item[''price'']'}
+  - {property: text, code: 'self.item[''price'']', writeback: false}
 is_package: true

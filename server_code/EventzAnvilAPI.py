@@ -52,16 +52,16 @@ class Publisher(object):
     def __init__(self):
 #         self.dsParam = dsParam
         self.exchange = 'amq.topic'
-        self.brokerUserName = 'moxlxjny'
-        self.brokerPassword = 'JQ2V1MQ_ba6or8Kg0_upQXQ1Osjy_J_9'
-        self.brokerIP = 'shrimp-01.rmq.cloudamqp.com'
+        self.brokerUserName = 'lqcoztwn'
+        self.brokerPassword = '7ZJpQw7rSg1LyHLe0zx1rx2a3O27JktI'
+        self.brokerIP = 'codfish-01.rmq.cloudamqp.com'
         self.encrypt = False
         self.applicationId = '5bd21f12-e131-4666-aaff-c76fdeefedcf'
         self.tenant = '00000000-0000-0000-0000-000000000000'
         self.cert = ''
         self.key = ''
         self.CaCert = ''
-        self.virtualhost = 'moxlxjny'
+        self.virtualhost = 'lqcoztwn'
         self.channel = None
         self.connection = False
         self.publish_OK = False

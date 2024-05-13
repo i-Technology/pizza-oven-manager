@@ -54,10 +54,13 @@ class RowTemplate1(RowTemplate1Template):
 
   def button_3_click(self, **event_args):
     """This method is called when the DONE button is clicked"""
-    self.item.delete()
-    self.remove_from_parent()  
+    # self.item.delete()
+    # self.remove_from_parent()  
     self.status = 'Delivering'
-    anvil.server.call('publish_pizza', 'Update', self.account, self.size, self.crust, self.toppings, self.price,self.status)
+    anvil.server.call('publish_pizza', 'Update', self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+
+    # self.item.delete()
+    # self.remove_from_parent()  
     pass
 
 

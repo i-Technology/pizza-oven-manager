@@ -17,8 +17,11 @@ from Pizza import Pizza
 #   return 42
 #
 
+#anvil.server.call('publish_pizza', 'Update', self.account, self.size, self.crust, self.toppings, self.price,self.status)
 @anvil.server.callable
 def publish_pizza(action,account,size,crust,toppings,price,status):
-  print('Publishing')
+  print('Publishing3', action)
   pizza=Pizza(action,account,size,crust,toppings,price,status)
+  print('at 25', pizza)
   pizza.submit_pizza(action)
+  print('at 27')
