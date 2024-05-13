@@ -37,6 +37,21 @@ components:
       properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate1}
       name: repeating_panel_1
       layout_properties: {}
+  - type: DataGrid
+    properties:
+      columns:
+      - {id: RVDAEI, title: Column 1, data_key: column_1}
+      - {id: JMLXUL, title: Column 2, data_key: column_2}
+      - {id: XWSZGA, title: Column 3, data_key: column_3}
+    name: data_grid_2
+    layout_properties: {grid_position: 'YMMVRY,TGCJZJ'}
+    components:
+    - type: RepeatingPanel
+      properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate2}
+      name: repeating_panel_2
+      layout_properties: {}
+    data_bindings:
+    - {property: tag, code: 'self.item[''crust'']'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
