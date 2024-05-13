@@ -16,6 +16,9 @@ db_schema:
     client: full
     server: full
     columns:
+    - name: eventz_id
+      admin_ui: {width: 200}
+      type: string
     - name: account_no
       admin_ui: {width: 200}
       type: number
@@ -31,4 +34,7 @@ db_schema:
     - name: status
       admin_ui: {width: 200}
       type: string
+    - name: price
+      admin_ui: {width: 200}
+      type: number
 renamed: true

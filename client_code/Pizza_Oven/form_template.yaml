@@ -21,9 +21,11 @@ components:
       - {id: KZTBRJ, title: Crust, data_key: column_3}
       - {id: GVERNO, title: Toppings, data_key: column_1}
       - {id: OVKZSQ, title: Status, data_key: column_4, width: 73, expand: false}
+      - {id: IVRXCY, title: Price, data_key: column_8}
       - {id: NOJKTH, title: '', data_key: column_5, width: 73, expand: false}
       - {id: BVSSNZ, title: '', data_key: Box, width: 71, expand: false}
-      - {id: AQXNKG, title: '', data_key: column_6}
+      - {id: CTLJCC, title: Done, data_key: column_7}
+      - {id: AQXNKG, title: Remaining, data_key: column_6}
       auto_header: true
       tooltip: ''
       border: ''
@@ -36,7 +38,7 @@ components:
       spacing_below: small
       background: ''
     name: data_grid_1
-    layout_properties: {grid_position: 'JGXULT,XIHJZU'}
+    layout_properties: {grid_position: 'JGXULT,HXJQKP'}
     components:
     - type: RepeatingPanel
       properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate1}

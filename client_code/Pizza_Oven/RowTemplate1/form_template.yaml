@@ -58,7 +58,23 @@ components:
   properties: {}
   name: timer_2
 - type: Label
-  properties: {}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false, icon: ''}
   name: timer_label
   layout_properties: {column: AQXNKG}
+- type: Button
+  properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+    foreground: '', visible: true, text: Done, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: 'fa:times'}
+  name: button_3
+  layout_properties: {column: CTLJCC}
+  event_bindings: {click: button_3_click}
+- type: Label
+  properties: {}
+  name: price
+  layout_properties: {column: IVRXCY}
+  data_bindings:
+  - {property: text, code: 'self.item[''price'']'}
 is_package: true
