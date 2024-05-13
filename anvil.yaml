@@ -13,7 +13,7 @@ startup_form: Pizza_Oven
 db_schema:
   pizza_oven:
     title: Pizza_Oven
-    client: none
+    client: full
     server: full
     columns:
     - name: account_no

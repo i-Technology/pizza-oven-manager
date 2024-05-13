@@ -15,4 +15,7 @@ import anvil.server
 #   print("Hello, " + name + "!")
 #   return 42
 #
+@anvil.server.callable
+def get_pizza():
+  return app_tables.pizza_oven.search()
 

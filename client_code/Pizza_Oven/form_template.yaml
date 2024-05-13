@@ -26,10 +26,22 @@ components:
     layout_properties: {grid_position: 'MJNXSM,AWZCCN'}
   - type: DataGrid
     properties:
+      role: null
       columns:
-      - {id: NAXQDU, title: Column 1, data_key: column_1}
+      - {id: NAXQDU, title: Account, data_key: account}
       - {id: EIUGBO, title: Column 2, data_key: column_2}
       - {id: KZTBRJ, title: Column 3, data_key: column_3}
+      auto_header: true
+      tooltip: ''
+      border: ''
+      foreground: ''
+      rows_per_page: 20
+      visible: true
+      wrap_on: never
+      show_page_controls: true
+      spacing_above: small
+      spacing_below: small
+      background: ''
     name: data_grid_1
     layout_properties: {grid_position: 'JGXULT,XIHJZU'}
     components:
@@ -37,21 +49,6 @@ components:
       properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate1}
       name: repeating_panel_1
       layout_properties: {}
-  - type: DataGrid
-    properties:
-      columns:
-      - {id: RVDAEI, title: Column 1, data_key: column_1}
-      - {id: JMLXUL, title: Column 2, data_key: column_2}
-      - {id: XWSZGA, title: Column 3, data_key: column_3}
-    name: data_grid_2
-    layout_properties: {grid_position: 'YMMVRY,TGCJZJ'}
-    components:
-    - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate2}
-      name: repeating_panel_2
-      layout_properties: {}
-    data_bindings:
-    - {property: tag, code: 'self.item[''crust'']'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
