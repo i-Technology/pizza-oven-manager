@@ -1,9 +1,34 @@
+correct_dependency_ids: {}
 dependencies: []
-services: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {auto_create_missing_columns: false}
 package_name: Pizza_Oven_Manager
 allow_embedding: false
 name: M3 App 1
 runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-startup_form: Form1
-db_schema: {}
+metadata: {}
+startup_form: Pizza_Oven
+db_schema:
+  pizza_oven:
+    title: Pizza_Oven
+    client: none
+    server: full
+    columns:
+    - name: account_no
+      admin_ui: {width: 200}
+      type: number
+    - name: size
+      admin_ui: {width: 200}
+      type: string
+    - name: crust
+      admin_ui: {width: 200}
+      type: string
+    - name: toppings
+      admin_ui: {width: 200}
+      type: string
+    - name: status
+      admin_ui: {width: 200}
+      type: string
 renamed: true
