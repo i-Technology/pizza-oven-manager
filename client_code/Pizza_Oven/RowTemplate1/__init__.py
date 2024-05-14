@@ -31,6 +31,8 @@ class RowTemplate1(RowTemplate1Template):
     self.refresh_data_bindings()
     self.timer_1.interval=1
     self.countdown = 5
+    anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+
     pass
 
   def button_2_click(self, **event_args):
@@ -39,6 +41,8 @@ class RowTemplate1(RowTemplate1Template):
     self.status = 'Boxing'
     self.background = "lightgreen"    
     self.refresh_data_bindings()
+    anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+
     pass
 
   def timer_1_tick(self, **event_args):
