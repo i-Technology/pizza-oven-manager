@@ -45,7 +45,7 @@ class Pizza(object):
   def make_tuple(self):
     record_tuple = (self.account,self.size, self.crust, self.toppings, self.price, self.status)
     print('at 47 record_tuple', record_tuple,self.price)
-    return record_tuple
+    return record_tupl
   
   
   def submit_pizza(self,action):
