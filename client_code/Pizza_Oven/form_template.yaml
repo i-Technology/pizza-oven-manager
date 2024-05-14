@@ -26,6 +26,13 @@ components:
       - {id: BVSSNZ, title: '', data_key: Box, width: 71, expand: false}
       - {id: CTLJCC, title: Done, data_key: column_7}
       - {id: AQXNKG, title: Remaining, data_key: column_6}
+      - {id: PTXBZQ, data_key: eventz_id, title: eventz_id}
+      - {id: PVYAKV, data_key: account_no, title: account_no}
+      - {id: YPFKFA, data_key: size, title: size}
+      - {id: YQVVWT, data_key: crust, title: crust}
+      - {id: ROEYHC, data_key: toppings, title: toppings}
+      - {id: MNDIQV, data_key: price, title: price}
+      - {id: DWFNQQ, data_key: status, title: status}
       auto_header: true
       tooltip: ''
       border: ''
@@ -41,7 +48,8 @@ components:
     layout_properties: {grid_position: 'JGXULT,HXJQKP'}
     components:
     - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate1}
+      properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate1,
+        visible: true}
       name: repeating_panel_1
       layout_properties: {}
 - type: FlowPanel

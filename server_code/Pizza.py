@@ -31,15 +31,16 @@ class Pizza(object):
     self.status = 'Ordered'
     self.publisher = Publisher()
     self.account=account
-    self.eventz_id = 'd55b2bd0-35a2-4d4f-8ba1-4dc50599bbed'
+    self.eventz_id = ''
     
-  def load_pizza(self,account,size,crust,toppings,price,status):
+  def load_pizza(self,eventz_id,account,size,crust,toppings,price,status):
     
     self.size = size
     self.crust = crust
     self.toppings = toppings
     self.price = price
     self.status = status
+    self.eventz_id = eventz_id
     
   def make_tuple(self):
     record_tuple = (self.account,self.size, self.crust, self.toppings, self.price, self.status)
@@ -58,15 +59,17 @@ class Pizza(object):
       print(f'Published Record: {published_record}   Eventz Id: {eventz_id}')
       app_tables.pizzas.add_row(events_id=eventz_id,account=self.account,size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
     elif action == 'Update':
-      print ('at 60 updating', eventz_id)
+      print ('at 60 updating', self.eventz_id)
       old_eventz_id = self.eventz_id
+      print ('at 63', old_eventz_id)
       published_record = self.publisher.publish(500001.00, record_tuple, str(RecordAction.UPDATE.value),link = old_eventz_id)
-      print ('at 63 ', record_tuple)
+      print ('at 65 ', record_tuple)
       er = ast.literal_eval(str(published_record))
       print(f'er: {er}')
       eventz_id = er[2]
       print(f'Published Record: {published_record}   Eventz Id: {eventz_id}')
       app_tables.pizza_oven.add_row(eventz_id=eventz_id,account_no=self.account,size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
+      print('at 70', old_eventz_id)
       row =app_tables.pizza_oven.get(eventz_id = old_eventz_id)
       print('at 70', row)
       row.update(eventz_id = old_eventz_id, account=self.account, size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
