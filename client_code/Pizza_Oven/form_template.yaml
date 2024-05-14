@@ -12,6 +12,11 @@ components:
     properties: {role: outlined-card}
     name: outlined_card_1
     layout_properties: {grid_position: 'UTEGQS,HEIBLG'}
+    components:
+    - name: button_1
+      properties: {text: button_1}
+      type: Button
+      layout_properties: {grid_position: 'PMQYRL,BPRDEG'}
   - type: DataGrid
     properties:
       role: null

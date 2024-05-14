@@ -29,7 +29,7 @@ class Pizza_Oven(Pizza_OvenTemplate):
 #         print('29 fired!')
 #         column['visible'] = False
 
-#     # Optionally, update the DataGrid to refresh the view
+#     # Optionally, update the DataGrid to refresh the view 
 #     self.data_grid_1.columns = columns
     # Filter the column with title 'Stock Price' out of the columns list.
     column = [c for c in self.data_grid_1.columns if c['data_key'] == 'eventz_id'][0]
