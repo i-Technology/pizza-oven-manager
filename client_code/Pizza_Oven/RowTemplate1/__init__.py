@@ -11,7 +11,7 @@ class RowTemplate1(RowTemplate1Template):
     self.init_components(**properties)
     self.background = "lightblue"  # You can use any CSS color here
     self.countdown=0    # baking timer
-    self.item.update(status='Ordered')
+    # self.item.update(status='Ordered')
     self.status = self.item['status']
     self.refresh_data_bindings()
     self.account = self.item['account_no']
@@ -31,8 +31,8 @@ class RowTemplate1(RowTemplate1Template):
     self.refresh_data_bindings()
     self.timer_1.interval=1
     self.countdown = 5
-    anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
-
+    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+    print('361 eid2', eid2)    
     pass
 
   def button_2_click(self, **event_args):
@@ -41,8 +41,8 @@ class RowTemplate1(RowTemplate1Template):
     self.status = 'Boxing'
     self.background = "lightgreen"    
     self.refresh_data_bindings()
-    eid = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
-
+    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+    print('451 eid2', eid2)
     pass
 
   def timer_1_tick(self, **event_args):
@@ -63,9 +63,9 @@ class RowTemplate1(RowTemplate1Template):
  
     print('at 59 event_args', event_args)
     self.status = 'Delivering'
-  
-    anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
-
+    self.refresh_data_bindings()
+    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+    print('at 681 eid2', eid2)
     self.item.delete()
     self.remove_from_parent()  
     pass

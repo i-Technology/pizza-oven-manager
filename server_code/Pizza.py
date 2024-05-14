@@ -45,7 +45,7 @@ class Pizza(object):
   def make_tuple(self):
     record_tuple = (self.account,self.size, self.crust, self.toppings, self.price, self.status)
     print('at 47 record_tuple', record_tuple,self.price)
-    return record_tupl
+    return record_tuple
   
   
   def submit_pizza(self,action):
@@ -73,7 +73,7 @@ class Pizza(object):
       print('at 70', old_eventz_id)
       row =app_tables.pizza_oven.get(eventz_id = old_eventz_id)
       print('at 74', row)
-      row.update(eventz_id = eventz_id, account_no=self.account, size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
+      row.update(eventz_id = self.eventz_id, account_no=self.account, size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
     elif action == 'Delete':
       old_eventz_id = eventz_id
       eventz_id = self.publisher.publish(500001.00, record_tuple, RecordAction.DELETE.value,link = old_eventz_id)[2]
@@ -82,4 +82,6 @@ class Pizza(object):
       
     else:
       print(f'Invalid action! {action}')
+      
+    return self.eventz_id
     
