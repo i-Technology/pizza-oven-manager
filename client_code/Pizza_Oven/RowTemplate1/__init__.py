@@ -41,7 +41,7 @@ class RowTemplate1(RowTemplate1Template):
     self.status = 'Boxing'
     self.background = "lightgreen"    
     self.refresh_data_bindings()
-    anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+    eid = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
 
     pass
 

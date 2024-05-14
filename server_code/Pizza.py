@@ -67,8 +67,8 @@ class Pizza(object):
       print ('at 65 ', record_tuple)
       er = ast.literal_eval(str(published_record))
       print(f'er: {er}')
-      eventz_id = er[2]
-      print(f'Published Record: {published_record}   Eventz Id: {eventz_id}')
+      self.eventz_id = er[2]
+      print(f'Published Record: {published_record}   Eventz Id: {self.eventz_id}')
 #       app_tables.pizza_oven.add_row(eventz_id=eventz_id,account_no=self.account,size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
       print('at 70', old_eventz_id)
       row =app_tables.pizza_oven.get(eventz_id = old_eventz_id)
