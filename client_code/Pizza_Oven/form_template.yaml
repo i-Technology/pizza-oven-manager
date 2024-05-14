@@ -26,13 +26,7 @@ components:
       - {id: BVSSNZ, title: '', data_key: Box, width: 71, expand: false}
       - {id: CTLJCC, title: Done, data_key: column_7}
       - {id: AQXNKG, title: Remaining, data_key: column_6}
-      - {id: PTXBZQ, data_key: eventz_id, title: eventz_id}
-      - {id: PVYAKV, data_key: account_no, title: account_no}
-      - {id: YPFKFA, data_key: size, title: size}
-      - {id: YQVVWT, data_key: crust, title: crust}
-      - {id: ROEYHC, data_key: toppings, title: toppings}
-      - {id: MNDIQV, data_key: price, title: price}
-      - {id: DWFNQQ, data_key: status, title: status}
+      - {id: PTXBZQ, data_key: eventz_id, title: eventz_id, width: '0'}
       auto_header: true
       tooltip: ''
       border: ''
