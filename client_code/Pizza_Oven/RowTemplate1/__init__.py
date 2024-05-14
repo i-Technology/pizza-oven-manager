@@ -31,8 +31,10 @@ class RowTemplate1(RowTemplate1Template):
     self.refresh_data_bindings()
     self.timer_1.interval=1
     self.countdown = 5
+    print('341 incoming current eventz_id:', self.eventz_id) 
     eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
-    print('361 eid2', eid2)    
+    print('361 new after publishing eventz_id eid2', eid2)  
+    self.eventz_id = eid2     # This creates  the daisy chain of updates!
     pass
 
   def button_2_click(self, **event_args):
@@ -41,8 +43,11 @@ class RowTemplate1(RowTemplate1Template):
     self.status = 'Boxing'
     self.background = "lightgreen"    
     self.refresh_data_bindings()
+    print('461 incoming current eventz_id:', self.eventz_id) 
     eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
-    print('451 eid2', eid2)
+    #print('451 eid2', eid2)
+    print('491 new after publishing eventz_id eid2', eid2) 
+    self.eventz_id = eid2     # This creates  the daisy chain of updates!
     pass
 
   def timer_1_tick(self, **event_args):
@@ -66,6 +71,7 @@ class RowTemplate1(RowTemplate1Template):
     self.refresh_data_bindings()
     eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
     print('at 681 eid2', eid2)
+
     self.item.delete()
     self.remove_from_parent()  
     pass
