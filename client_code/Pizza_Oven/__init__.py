@@ -11,8 +11,8 @@ class Pizza_Oven(Pizza_OvenTemplate):
     self.hidden_columns = []
     self.init_components(**properties)
     
-    print("Launching Subscriber!")    
-    self.subscriber_task = anvil.server.call('launch_subscriber_task')
+    # print("Launching Subscriber!")    
+    # self.subscriber_task = anvil.server.call('launch_subscriber_task')
 
     print("Starting Timer")
     self.timer_1.interval = 1
@@ -23,19 +23,7 @@ class Pizza_Oven(Pizza_OvenTemplate):
 #     self.pizza_crust = 'Thin'   
     self.account = 0  # Initialize the account variable
     self.repeating_panel_1.items = anvil.server.call('get_pizza')
-    
-#      # Get the columns of the DataGrid
-#     columns = self.data_grid_1.columns
 
-#     # Find the column you want to hide
-#     for column in columns:
-#       print(f"column_data_key: {column['data_key']}")
-#       if column['data_key'] == 'eventz_id':
-#         print('29 fired!')
-#         column['visible'] = False
-
-#     # Optionally, update the DataGrid to refresh the view 
-#     self.data_grid_1.columns = columns
     # Filter the column with title 'Stock Price' out of the columns list.
     column = [c for c in self.data_grid_1.columns if c['data_key'] == 'eventz_id'][0]
 #     column = [c for c in self.data_grid_1.columns if c['title'] == 'Stock Price'][0] 
@@ -48,46 +36,43 @@ class Pizza_Oven(Pizza_OvenTemplate):
     
     # Make the change live
     self.data_grid_1.columns = self.data_grid_1.columns
-    
-    
-    
-   # Additional UI setup
-   # self.setup_price_tb()   
-    
-   # self.calculate_price()
-    #self.pizza_list_show()
+
 
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+
+    message =  anvil.server.call("get_message")
+    if message != 'None':
+      print(message)
   
     # print("Tick")
-    try:
-      record_type = self.subscriber_task.get_state()["recordType"]
-      if record_type != '':
-        print(f'Record Type -> {record_type}')
-        session_id = self.subscriber_task.get_state()["session"]
-        if session_id != self.last_session_id:
-          print(f"1 Session Id: {session_id}")
-          anvil.server.call('set_session_id', session_id)
-          records = self.subscriber_task.get_state()["records"]
-          print(f"Record Type: {record_type}")
-          print(f"Records List: {records}")
-          for record in records:
-            record_type = record['recordType']
-            metadata = record['metadata']
-            payload = record['payload']
-            item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
-            self.dg_items.append(item)
-            print(f'Item Count: {len(self.dg_items)}')
+#     try:
+#       record_type = self.subscriber_task.get_state()["recordType"]
+#       if record_type != '':
+#         print(f'Record Type -> {record_type}')
+#         session_id = self.subscriber_task.get_state()["session"]
+#         if session_id != self.last_session_id:
+#           print(f"1 Session Id: {session_id}")
+#           anvil.server.call('set_session_id', session_id)
+#           records = self.subscriber_task.get_state()["records"]
+#           print(f"Record Type: {record_type}")
+#           print(f"Records List: {records}")
+#           for record in records:
+#             record_type = record['recordType']
+#             metadata = record['metadata']
+#             payload = record['payload']
+#             item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
+#             self.dg_items.append(item)
+#             print(f'Item Count: {len(self.dg_items)}')
             
-          self.repeating_panel_1.items = self.dg_items
-#          self.repeating_panel_1.items = self.repeating_panel_1.items
+#           self.repeating_panel_1.items = self.dg_items
+# #          self.repeating_panel_1.items = self.repeating_panel_1.items
           
-          self.last_session_id = session_id
+#           self.last_session_id = session_id
           
-    except Exception as ex:
-      print(f'Exception: {repr(ex)}')
-      pass
+#     except Exception as ex:
+#       print(f'Exception: {repr(ex)}')
+#       pass
     
     pass
   
