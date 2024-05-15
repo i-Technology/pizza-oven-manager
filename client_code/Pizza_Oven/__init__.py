@@ -11,6 +11,11 @@ class Pizza_Oven(Pizza_OvenTemplate):
     self.hidden_columns = []
     self.init_components(**properties)
     
+    print("Launching Subscriber!")    
+    self.subscriber_task = anvil.server.call('launch_subscriber_task')
+
+    print("Starting Timer")
+    self.timer_1.interval = 1
     #anvil.users.login_with_form()
 #     self.pizza_size = 'Small'
 #     self.pizza_size_price = 10.0
@@ -51,3 +56,38 @@ class Pizza_Oven(Pizza_OvenTemplate):
     
    # self.calculate_price()
     #self.pizza_list_show()
+
+  def timer_1_tick(self, **event_args):
+    """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+  
+    # print("Tick")
+    try:
+      record_type = self.subscriber_task.get_state()["recordType"]
+      if record_type != '':
+        print(f'Record Type -> {record_type}')
+        session_id = self.subscriber_task.get_state()["session"]
+        if session_id != self.last_session_id:
+          print(f"1 Session Id: {session_id}")
+          anvil.server.call('set_session_id', session_id)
+          records = self.subscriber_task.get_state()["records"]
+          print(f"Record Type: {record_type}")
+          print(f"Records List: {records}")
+          for record in records:
+            record_type = record['recordType']
+            metadata = record['metadata']
+            payload = record['payload']
+            item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
+            self.dg_items.append(item)
+            print(f'Item Count: {len(self.dg_items)}')
+            
+          self.repeating_panel_1.items = self.dg_items
+#          self.repeating_panel_1.items = self.repeating_panel_1.items
+          
+          self.last_session_id = session_id
+          
+    except Exception as ex:
+      print(f'Exception: {repr(ex)}')
+      pass
+    
+    pass
+  

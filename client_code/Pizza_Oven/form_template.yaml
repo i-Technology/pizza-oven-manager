@@ -67,3 +67,4 @@ components:
 - type: Timer
   properties: {}
   name: timer_1
+  event_bindings: {tick: timer_1_tick}

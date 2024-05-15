@@ -199,25 +199,27 @@ class Subscriber(object):
     self.exchange = 'amq.topic'
     self.channel = None
     self.queue_name = None
-    self.routingKeys = ['300000.00']
+    self.routingKeys = ['500001.00']
     self.systemRoutingKeys = []
     self.session_id = ''
     anvil.server.session['session_id'] = ''
     self.message_dict = {}
-    anvil.server.task_state['session'] = ''
-    anvil.server.task_state['recordType'] = ''
-    anvil.server.task_state['records'] = []
+    # anvil.server.task_state['session'] = ''
+    # anvil.server.task_state['recordType'] = ''
+    # anvil.server.task_state['records'] = []
     self.deviceId = ':'.join((itertools.starmap(operator.add, zip(*([iter("%012X" % get_mac())] * 2)))))
     self.deviceName = 'Bobs MAC'
     self.location = 'London, Ontario Canada'
     self.applicationId = '5bd21f12-e131-4666-aaff-c76fdeefedcf'
-    self.applicationName = 'System Monitor'
+    self.applicationName = 'PizzaOven'
     self.aPublisher = Publisher()
     self.applicationUser = 'Anvil'
+    self.anvil_state = {}
 
 
 
-  def subscriber_task(self):
+  def subscriber_task(self,anvil_state):
+    self.anvil_state = anvil_state
     
     '''A task to report receipt of messages subscribed to'''
     # RUN
@@ -382,9 +384,9 @@ class Subscriber(object):
 
           if get_anvil_server_session_id() == self.session_id:
             print('Clearing session')
-            anvil.server.task_state['session'] = ''
-            anvil.server.task_state['recordType'] = ''
-            anvil.server.task_state['records'] = []
+            self.anvil_state['session'] = ''
+            self.anvil_state['recordType'] = ''
+            self.anvil_state['records'] = []
   
             
   
@@ -413,9 +415,9 @@ class Subscriber(object):
 
           # A change in state indicates to the client that there is new data in the database
 
-          anvil.server.task_state['session'] = self.session
-          anvil.server.task_state['recordType'] = recordType
-          anvil.server.task_state['records'] = [self.message_dict]
+          self.anvil_state['session'] = self.session
+          self.anvil_state['recordType'] = recordType
+          self.anvil_state['records'] = [self.message_dict]
 
 
  
