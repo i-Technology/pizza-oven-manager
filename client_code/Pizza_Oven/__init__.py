@@ -42,6 +42,7 @@ class Pizza_Oven(Pizza_OvenTemplate):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
 
     message =  anvil.server.call("get_message")
+    print ('at 451', message)
     if message != 'None':
       print(message)
   
