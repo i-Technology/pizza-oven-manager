@@ -22,7 +22,7 @@ from EventzAnvilAPI import Publisher, Subscriber, RecordAction, LibrarianClient
 
 class Pizza(object):
   def __init__(self,action,eventz_id,account,size,crust,toppings,price,status):
-    self.record_id  = ''
+    self.record_id  = ''  # This is not used as of May 16-24
     self.action = action
     self.size = size
     self.crust = crust
@@ -31,7 +31,7 @@ class Pizza(object):
     self.status = status
     self.publisher = Publisher()
     self.account=account
-    self.eventz_id = eventz_id
+    self.eventz_id = eventz_id  # This is the eventz record id (UUID) assigned by Publisher
     
   def load_pizza(self,eventz_id,account,size,crust,toppings,price,status):
     
