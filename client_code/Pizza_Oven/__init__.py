@@ -47,33 +47,33 @@ class Pizza_Oven(Pizza_OvenTemplate):
       print(message)
   
     # print("Tick")
-#     try:
-#       record_type = self.subscriber_task.get_state()["recordType"]
-#       if record_type != '':
-#         print(f'Record Type -> {record_type}')
-#         session_id = self.subscriber_task.get_state()["session"]
-#         if session_id != self.last_session_id:
-#           print(f"1 Session Id: {session_id}")
-#           anvil.server.call('set_session_id', session_id)
-#           records = self.subscriber_task.get_state()["records"]
-#           print(f"Record Type: {record_type}")
-#           print(f"Records List: {records}")
-#           for record in records:
-#             record_type = record['recordType']
-#             metadata = record['metadata']
-#             payload = record['payload']
-#             item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
-#             self.dg_items.append(item)
-#             print(f'Item Count: {len(self.dg_items)}')
+    try:
+      record_type = self.subscriber_task.get_state()["recordType"]
+      if record_type != '':
+        print(f'Record Type -> {record_type}')
+        session_id = self.subscriber_task.get_state()["session"]
+        if session_id != self.last_session_id:
+          print(f"1 Session Id: {session_id}")
+          anvil.server.call('set_session_id', session_id)
+          records = self.subscriber_task.get_state()["records"]
+          print(f"Record Type: {record_type}")
+          print(f"Records List: {records}")
+          for record in records:
+            record_type = record['recordType']
+            metadata = record['metadata']
+            payload = record['payload']
+            item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
+            self.dg_items.append(item)
+            print(f'Item Count: {len(self.dg_items)}')
             
-#           self.repeating_panel_1.items = self.dg_items
-# #          self.repeating_panel_1.items = self.repeating_panel_1.items
+          self.repeating_panel_1.items = self.dg_items
+#          self.repeating_panel_1.items = self.repeating_panel_1.items
           
-#           self.last_session_id = session_id
+          self.last_session_id = session_id
           
-#     except Exception as ex:
-#       print(f'Exception: {repr(ex)}')
-#       pass
+    except Exception as ex:
+      print(f'Exception: {repr(ex)}')
+      pass
     
     pass
   
