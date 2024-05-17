@@ -45,7 +45,7 @@ class Pizza_Oven(Pizza_OvenTemplate):
     message =  anvil.server.call("get_message")
    #print ('at 451', message)
     self.nnn += 1
-    print('687 Ticked to: ', self.nnn)
+    #print('687 Ticked to: ', self.nnn)
     if message != 'None':
       print(message)
       record_type = message[0]   # 500001.00
@@ -67,20 +67,24 @@ class Pizza_Oven(Pizza_OvenTemplate):
         print('641 got here. Now refreshing data grid.')
 
         self.refresh_data_grid()
-
-        
-      
-      
+       
  #['500001.00', 0, '67fd1474-a823-42b7-802b-ad304a757022', '00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000',
    #'', '2024-05-17T13:44:59.006752', '5bd21f12-e131-4666-aaff-c76fdeefedcf', '00000000-0000-0000-0000-000000000000', False, 
     # '00000000-0000-0000-0000-000000000000', '', '', '', '', '', '34', 'Small', 'Thin', 'Pepperoni, Olives, Mushrooms', '11.3', 'Ordered'] 
   def refresh_data_grid(self):
       try:
           # Fetch the current data from the server
-          pizzas = anvil.server.call('get_pizzas')
-          # Update the DataGrid's items
-          self.data_grid_1.items = pizzas
-      except anvil.server.CallableError as e:
-          # Handle error if the server function call fails
-          print(f"Error fetching pizzas: {e}")
+          self.repeating_panel_1.items = anvil.server.call('get_pizza') # Explicitly refresh the DataGrid
+  
+      #except anvil.server.CallableError as e:
+      # Handle error if the server function call fails
+      except anvil.server.ExternalError as e:
+        print(f"Error while refreshing the grid: {e}")
+          
+
+
+  def refresh_button_click(self, **event_args):
+    """This method is called when the REFRESH button is clicked"""
+    self.repeating_panel_1.items = anvil.server.call('get_pizza')
+    pass
   
