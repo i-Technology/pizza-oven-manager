@@ -7,17 +7,7 @@ from EventzAnvilAPI import Publisher, Subscriber, RecordAction, LibrarianClient
 
 
 
-# This is a server module. It runs on the Anvil server,
-# rather than in the user's browser.
 #
-# To allow anvil.server.call() to call functions here, we mark
-# them with @anvil.server.callable.
-# Here is an example - you can replace it with your own:
-#
-# @anvil.server.callable
-# def say_hello(name):
-#   print("Hello, " + name + "!")
-#   return 42
 #
 
 class Pizza(object):
@@ -69,7 +59,6 @@ class Pizza(object):
       print(f'er: {er}')
       self.eventz_id = er[2]
       print(f'Published Record: {published_record}   Eventz Id: {self.eventz_id}')
-#       app_tables.pizza_oven.add_row(eventz_id=eventz_id,account_no=self.account,size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
       print('at 70', old_eventz_id)
       row =app_tables.pizza_oven.get(eventz_id = old_eventz_id)
       print('at 74', row)

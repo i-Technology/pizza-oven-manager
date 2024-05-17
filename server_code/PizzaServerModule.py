@@ -21,7 +21,7 @@ def publish_pizza(action,eventz_id,account,size,crust,toppings,price,status):
 def put_pizza_in_table(eventz_id,account,size,crust,toppings,price,status):
   action = 'None'
   #pizza=Pizza(action,eventz_id,account,size,crust,toppings,price,status)
-  app_tables.pizza_oven.add_row(eventz_id=eventz_id,account_no=account,size=size, crust=crust, toppings=str(toppings), price=float(price))
+  app_tables.pizza_oven.add_row(eventz_id=eventz_id,account_no=account,size=size, crust=crust, toppings=str(toppings), price=float(price),status=status)
   print('369 finished inserting table')
 
 @anvil.server.callable

@@ -27,12 +27,12 @@ components:
       - {id: KZTBRJ, title: Crust, data_key: column_3}
       - {id: GVERNO, title: Toppings, data_key: column_1}
       - {id: OVKZSQ, title: Status, data_key: column_4, width: 73, expand: false}
-      - {id: IVRXCY, title: Price, data_key: column_8}
-      - {id: NOJKTH, title: '', data_key: column_5, width: 73, expand: false}
-      - {id: BVSSNZ, title: '', data_key: Box, width: 71, expand: false}
-      - {id: CTLJCC, title: Done, data_key: column_7}
-      - {id: AQXNKG, title: Remaining, data_key: column_6}
-      - {id: PTXBZQ, data_key: eventz_id, title: eventz_id, width: '0'}
+      - {id: IVRXCY, title: Price, data_key: column_8, width: 52, expand: false}
+      - {id: NOJKTH, title: '', data_key: column_5, width: 124, expand: false}
+      - {id: BVSSNZ, title: '', data_key: Box, width: 116, expand: false}
+      - {id: CTLJCC, title: Done, data_key: column_7, width: 121, expand: false}
+      - {id: AQXNKG, title: Remaining, data_key: column_6, width: 62, expand: false}
+      - {id: PTXBZQ, data_key: eventz_id, title: eventz_id, width: 88, expand: false}
       auto_header: true
       tooltip: ''
       border: ''
