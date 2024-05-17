@@ -58,7 +58,7 @@ class Pizza(object):
       print(f'er: {er}')
       eventz_id = er[2]
       print(f'Published Record: {published_record}   Eventz Id: {eventz_id}')
-      app_tables.pizzas.add_row(events_id=eventz_id,account=self.account,size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
+      app_tables.pizza_oven.add_row(events_id=eventz_id,account=self.account,size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
     elif action == 'Update':
       print ('at 60 updating', self.eventz_id)
       old_eventz_id = self.eventz_id
@@ -77,7 +77,7 @@ class Pizza(object):
     elif action == 'Delete':
       old_eventz_id = eventz_id
       eventz_id = self.publisher.publish(500001.00, record_tuple, RecordAction.DELETE.value,link = old_eventz_id)[2]
-      row =app_tables.pizzas.get(eventz_id = old_eventz_id)
+      row =app_tables.pizza_oven.get(eventz_id = old_eventz_id)
       for row in rows: row.delete()
       
     else:

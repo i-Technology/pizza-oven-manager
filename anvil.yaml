@@ -19,9 +19,6 @@ db_schema:
     - name: eventz_id
       admin_ui: {width: 200}
       type: string
-    - name: account_no
-      admin_ui: {width: 200}
-      type: number
     - name: size
       admin_ui: {width: 200}
       type: string
@@ -36,6 +33,9 @@ db_schema:
       type: number
     - name: status
       admin_ui: {width: 200}
+      type: string
+    - name: account_no
+      admin_ui: {order: -0.5, width: 200}
       type: string
 uplink_visible: true
 renamed: true

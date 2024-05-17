@@ -10,12 +10,13 @@ class Pizza_Oven(Pizza_OvenTemplate):
     # Set Form properties and Data Bindings.
     self.hidden_columns = []
     self.init_components(**properties)
+    self.nnn = 0
     
     # print("Launching Subscriber!")    
     # self.subscriber_task = anvil.server.call('launch_subscriber_task')
 
     print("Starting Timer")
-    self.timer_1.interval = 1
+    self.timer_1.interval = .5
     #anvil.users.login_with_form()
 #     self.pizza_size = 'Small'
 #     self.pizza_size_price = 10.0
@@ -43,6 +44,8 @@ class Pizza_Oven(Pizza_OvenTemplate):
 
     message =  anvil.server.call("get_message")
    #print ('at 451', message)
+    self.nnn += 1
+    print('687 Ticked to: ', self.nnn)
     if message != 'None':
       print(message)
       record_type = message[0]   # 500001.00
@@ -58,41 +61,26 @@ class Pizza_Oven(Pizza_OvenTemplate):
         status = message[21]
 
         print (record_type, record_id, link_id, time, account, size, crust, toppings, price, status)  # QC check
-    
-      
+        #app_tables.pizzas.add_row(events_id=eventz_id,account=self.account,size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
+        anvil.server.call ('put_pizza_in_table', record_id,account,size,crust,toppings,price,status)
+        #put_pizza_in_table(eventz_id,account,size,crust,toppings,price,status)
+        print('641 got here. Now refreshing data grid.')
+
+        self.refresh_data_grid()
+
+        
       
       
  #['500001.00', 0, '67fd1474-a823-42b7-802b-ad304a757022', '00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000',
    #'', '2024-05-17T13:44:59.006752', '5bd21f12-e131-4666-aaff-c76fdeefedcf', '00000000-0000-0000-0000-000000000000', False, 
     # '00000000-0000-0000-0000-000000000000', '', '', '', '', '', '34', 'Small', 'Thin', 'Pepperoni, Olives, Mushrooms', '11.3', 'Ordered'] 
-    # print("Tick")
-    try:
-      record_type = self.subscriber_task.get_state()["recordType"]
-      if record_type != '':
-        print(f'Record Type -> {record_type}')
-        session_id = self.subscriber_task.get_state()["session"]
-        if session_id != self.last_session_id:
-          print(f"1 Session Id: {session_id}")
-          anvil.server.call('set_session_id', session_id)
-          records = self.subscriber_task.get_state()["records"]
-          print(f"Record Type: {record_type}")
-          print(f"Records List: {records}")
-          for record in records:
-            record_type = record['recordType']
-            metadata = record['metadata']
-            payload = record['payload']
-            item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
-            self.dg_items.append(item)
-            print(f'Item Count: {len(self.dg_items)}')
-            
-          self.repeating_panel_1.items = self.dg_items
-#          self.repeating_panel_1.items = self.repeating_panel_1.items
-          
-          self.last_session_id = session_id
-          
-    except Exception as ex:
-      print(f'Exception: {repr(ex)}')
-      pass
-    
-    pass
+  def refresh_data_grid(self):
+      try:
+          # Fetch the current data from the server
+          pizzas = anvil.server.call('get_pizzas')
+          # Update the DataGrid's items
+          self.data_grid_1.items = pizzas
+      except anvil.server.CallableError as e:
+          # Handle error if the server function call fails
+          print(f"Error fetching pizzas: {e}")
   
