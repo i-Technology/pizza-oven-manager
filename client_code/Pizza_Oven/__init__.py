@@ -45,7 +45,26 @@ class Pizza_Oven(Pizza_OvenTemplate):
    #print ('at 451', message)
     if message != 'None':
       print(message)
-  
+      record_type = message[0]   # 500001.00
+      if record_type == '500001.00':        
+        record_id = message[2]# '67fd1474-a823-42b7-802b-ad304a757022'
+        link_id = message[3] #  '00000000-0000-0000-0000-000000000000'
+        time = message[6]
+        account = message[16]
+        size = message[17]
+        crust = message[18]
+        toppings = message[19]
+        price = message[20]
+        status = message[21]
+
+        print (record_type, record_id, link_id, time, account, size, crust, toppings, price, status)  # QC check
+    
+      
+      
+      
+ #['500001.00', 0, '67fd1474-a823-42b7-802b-ad304a757022', '00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000',
+   #'', '2024-05-17T13:44:59.006752', '5bd21f12-e131-4666-aaff-c76fdeefedcf', '00000000-0000-0000-0000-000000000000', False, 
+    # '00000000-0000-0000-0000-000000000000', '', '', '', '', '', '34', 'Small', 'Thin', 'Pepperoni, Olives, Mushrooms', '11.3', 'Ordered'] 
     # print("Tick")
     try:
       record_type = self.subscriber_task.get_state()["recordType"]
