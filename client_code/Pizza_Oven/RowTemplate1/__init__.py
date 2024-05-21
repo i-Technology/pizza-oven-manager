@@ -18,7 +18,7 @@ class RowTemplate1(RowTemplate1Template):
     self.size=self.item['size']
     self.crust=self.item['crust']
     self.toppings=self.item['toppings']
-   # self.price=self.item['price']
+    self.price=self.item['price']
     self.eventz_id = self.item['eventz_id']
  
     
@@ -32,7 +32,7 @@ class RowTemplate1(RowTemplate1Template):
     self.timer_1.interval=1
     self.countdown = 5
     print('341 incoming current eventz_id:', self.eventz_id) 
-    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price,self.status)
     print('361 new after publishing eventz_id eid2', eid2)  
     self.eventz_id = eid2     # This creates  the daisy chain of updates!
     pass
@@ -44,8 +44,8 @@ class RowTemplate1(RowTemplate1Template):
     self.background = "lightgreen"    
     self.refresh_data_bindings()
     print('461 incoming current eventz_id:', self.eventz_id) 
-    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
-    #print('451 eid2', eid2)
+    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, float(self.price),self.status)
+    print('48c eid2', eid2)
     print('491 new after publishing eventz_id eid2', eid2) 
     self.eventz_id = eid2     # This creates  the daisy chain of updates!
     pass
@@ -69,7 +69,7 @@ class RowTemplate1(RowTemplate1Template):
     print('at 59 event_args', event_args)
     self.status = 'Delivering'
     self.refresh_data_bindings()
-    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, self.price1.text,self.status)
+    eid2 = anvil.server.call('publish_pizza', 'Update', self.eventz_id, self.account, self.size, self.crust, self.toppings, float(self.price),self.status)
     print('at 681 eid2', eid2)
 
     self.item.delete()

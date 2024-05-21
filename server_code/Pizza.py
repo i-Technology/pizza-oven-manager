@@ -62,7 +62,7 @@ class Pizza(object):
       print('at 70', old_eventz_id)
       row =app_tables.pizza_oven.get(eventz_id = old_eventz_id)
       print('at 74', row)
-      row.update(eventz_id = self.eventz_id, account_no=self.account, size=self.size, crust= self.crust, toppings= self.toppings, price= self.price)
+      row.update(eventz_id = self.eventz_id, account_no=self.account, size=self.size, crust= self.crust, toppings= self.toppings, price= float(self.price))
     elif action == 'Delete':
       old_eventz_id = eventz_id
       eventz_id = self.publisher.publish(500001.00, record_tuple, RecordAction.DELETE.value,link = old_eventz_id)[2]
