@@ -9,7 +9,8 @@ from EventzAnvilAPI import Subscriber
 #
 @anvil.server.callable
 def get_pizza():
-  return app_tables.pizza_oven.search()
+  
+  ot = app_tables.pizza_oven.search()
 
 # @anvil.server.callable
 # def set_session_id(s):
