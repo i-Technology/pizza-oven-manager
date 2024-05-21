@@ -7,35 +7,35 @@ from EventzAnvilAPI import Subscriber
 # This is a server module. It runs on the Anvil server,
 # rather than in the user's browser.
 #
-# @anvil.server.callable
-# def get_pizza():
-  
-#   ot = app_tables.pizza_oven.search()
-#   print('14a', type(ot), ot)
-#   return ot
-
-
 @anvil.server.callable
 def get_pizza():
-    # Fetch all rows from the pizzas table
-    pizzas = app_tables.pizza_oven.search()
-    return [format_pizza(pizza) for pizza in pizzas]
+  
+  ot = app_tables.pizza_oven.search()
+  print('14a', type(ot), ot)
+  return ot
 
-def format_pizza(pizza):
-    # Format the pizza data as needed
-    price = pizza['price']
-    formatted_price = f"{price:,.2f}"
-    print('28b', formatted_price)
-    return {
-        'eventz_id': pizza['eventz_id'],
-        'account_no': pizza['account_no'],        
-        'size': pizza['size'],
-        'crust' : pizza['crust'],
-        'toppings': pizza['toppings'],
-        'price': formatted_price,
-        'status': pizza['status']   
 
-    }
+# @anvil.server.callable
+# def get_pizza():
+#     # Fetch all rows from the pizzas table
+#     pizzas = app_tables.pizza_oven.search()
+#     return [format_pizza(pizza) for pizza in pizzas]
+
+# def format_pizza(pizza):
+#     # Format the pizza data as needed
+#     price = pizza['price']
+#     formatted_price = f"{price:,.2f}"
+#     print('28b', formatted_price)
+#     return {
+#         'eventz_id': pizza['eventz_id'],
+#         'account_no': pizza['account_no'],        
+#         'size': pizza['size'],
+#         'crust' : pizza['crust'],
+#         'toppings': pizza['toppings'],
+#         'price': formatted_price,
+#         'status': pizza['status']   
+
+#     }
 
 # @anvil.server.callable
 # def set_session_id(s):

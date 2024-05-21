@@ -73,7 +73,7 @@ class Pizza_Oven(Pizza_OvenTemplate):
           print('641 got here. Now refreshing data grid.')
   
           self.refresh_data_grid()
-          print('68a Refreshing')
+
        
  #['500001.00', 0, '67fd1474-a823-42b7-802b-ad304a757022', '00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000',
    #'', '2024-05-17T13:44:59.006752', '5bd21f12-e131-4666-aaff-c76fdeefedcf', '00000000-0000-0000-0000-000000000000', False, 
