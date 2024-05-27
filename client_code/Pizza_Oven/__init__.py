@@ -21,7 +21,7 @@ class Pizza_Oven(Pizza_OvenTemplate):
     # self.subscriber_task = anvil.server.call('launch_subscriber_task')
 
     print("Starting Timer")
-    self.timer_1.interval = .5
+    self.timer_1.interval = 1  # 1 second
     #anvil.users.login_with_form()
 #     self.pizza_size = 'Small'
 #     self.pizza_size_price = 10.0
