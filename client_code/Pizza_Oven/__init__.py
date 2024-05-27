@@ -52,9 +52,9 @@ class Pizza_Oven(Pizza_OvenTemplate):
     self.nnn += 1
     #print('687 Ticked to: ', self.nnn)
     if message != 'None':
-      print(message)
+      print('55a', message)
       action = message[1]   # Could be out of range -- Nope! Can't get here.
-      print(f'55a {type(action)} -{action}-')
+      print(f'57a {type(action)} -{action}-')
       if action == 0:   # Process only New records. Ignore Updates and Deletes.       
         record_type = message[0]   # 500001.00
         if record_type == '500001.00':        
@@ -68,7 +68,7 @@ class Pizza_Oven(Pizza_OvenTemplate):
           price = message[20]
           status = message[21]
   
-          print (record_type, record_id, link_id, time, account, size, crust, toppings, price, status)  # QC check
+          #print (record_type, record_id, link_id, time, account, size, crust, toppings, price, status)  # QC check
           anvil.server.call ('put_pizza_in_table', record_id,account,size,crust,toppings,price,status)       
           print('641 got here. Now refreshing data grid.')
   
