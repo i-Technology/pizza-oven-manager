@@ -16,6 +16,7 @@ components:
   - type: DataGrid
     properties:
       role: null
+      spacing_above: small
       columns:
       - {id: NAXQDU, title: Account, data_key: account}
       - {id: EIUGBO, title: Size, data_key: column_2}
@@ -28,23 +29,21 @@ components:
       - {id: CTLJCC, title: '', data_key: column_7, width: 124.116943359375, expand: false}
       - {id: AQXNKG, title: Time, data_key: column_6, width: 61.6058349609375, expand: false}
       - {id: PTXBZQ, data_key: eventz_id, title: eventz_id, width: 88, expand: false}
-      auto_header: true
-      tooltip: ''
-      border: ''
-      foreground: ''
-      rows_per_page: 20
-      visible: true
-      wrap_on: never
-      show_page_controls: true
-      spacing_above: small
-      spacing_below: small
       background: ''
+      rows_per_page: 20
+      wrap_on: never
+      foreground: ''
+      show_page_controls: true
+      auto_header: true
+      spacing_below: small
+      visible: true
+      border: ''
+      tooltip: ''
     name: data_grid_1
     layout_properties: {grid_position: 'JGXULT,HXJQKP'}
     components:
     - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate1,
-        visible: true}
+      properties: {spacing_above: none, spacing_below: none, item_template: Pizza_Oven.RowTemplate1, visible: true}
       name: repeating_panel_1
       layout_properties: {}
       data_bindings:
@@ -57,12 +56,26 @@ components:
   name: navbar_links
   layout_properties: {slot: nav-right}
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: 'Pizza Oven Manager
+  properties:
+    role: null
+    bold: false
+    align: left
+    spacing_above: small
+    background: ''
+    icon: ''
+    underline: false
+    font: ''
+    icon_align: left
+    foreground: ''
+    spacing_below: small
+    visible: true
+    border: ''
+    italic: false
+    font_size: null
+    tooltip: ''
+    text: |+
+      Pizza Oven Manager
 
-
-      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: ''}
   name: PizzaOven
   layout_properties: {slot: title}
 - type: Timer

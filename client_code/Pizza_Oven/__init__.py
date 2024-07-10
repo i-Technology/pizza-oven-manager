@@ -73,6 +73,16 @@ class Pizza_Oven(Pizza_OvenTemplate):
           print('641 got here. Now refreshing data grid.')
   
           self.refresh_data_grid()
+        elif record_type == '500010.00':
+          record_id = message[2]# '67fd1474-a823-42b7-802b-ad304a757022'
+          link_id = message[3] #  '00000000-0000-0000-0000-000000000000'
+          time = message[6]
+          account = message[16]
+          name = message[17]
+          address = message[18]
+          email = message[19]
+          print (record_type, record_id, link_id, time, account, name, address, email)  # QC check
+          anvil.server.call('put_account_in_table', account, name, address,email)
 
        
  #['500001.00', 0, '67fd1474-a823-42b7-802b-ad304a757022', '00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000',

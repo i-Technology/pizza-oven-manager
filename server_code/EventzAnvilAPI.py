@@ -199,7 +199,7 @@ class Subscriber(object):
     self.exchange = 'amq.topic'
     self.channel = None
     self.queue_name = None
-    self.routingKeys = ['500001.00']
+    self.routingKeys = ['500001.00', '500010.00']
     self.systemRoutingKeys = []
     self.session_id = ''
     anvil.server.session['session_id'] = ''

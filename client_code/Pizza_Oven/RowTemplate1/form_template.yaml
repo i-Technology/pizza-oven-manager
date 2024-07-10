@@ -33,20 +33,50 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''status'']'}
 - type: Button
-  properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: '',
-    visible: true, text: 'Box
-
-      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: 'fa:arrows-alt'}
+  properties:
+    role: null
+    align: left
+    tooltip: ''
+    border: ''
+    enabled: true
+    foreground: ''
+    visible: true
+    text: |
+      Box
+    font_size: null
+    font: ''
+    spacing_above: small
+    icon_align: left
+    spacing_below: small
+    italic: false
+    background: ''
+    bold: false
+    underline: false
+    icon: fa:arrows-alt
   name: button_2
   layout_properties: {column: BVSSNZ}
   event_bindings: {click: button_2_click}
 - type: Button
-  properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: '',
-    visible: true, text: 'Bake
-
-      ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: 'fa:stack-overflow'}
+  properties:
+    role: null
+    align: left
+    tooltip: ''
+    border: ''
+    enabled: true
+    foreground: ''
+    visible: true
+    text: |
+      Bake
+    font_size: null
+    font: ''
+    spacing_above: small
+    icon_align: left
+    spacing_below: small
+    italic: false
+    background: ''
+    bold: false
+    underline: false
+    icon: fa:stack-overflow
   name: button_1
   layout_properties: {column: NOJKTH}
   event_bindings: {click: button_1_click}
@@ -60,16 +90,11 @@ components:
   properties: {}
   name: timer_2
 - type: Label
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '', bold: false, underline: false, icon: ''}
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   name: timer_label
   layout_properties: {column: AQXNKG}
 - type: Button
-  properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: '',
-    visible: true, text: Done, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: false, underline: false,
-    icon: 'fa:times'}
+  properties: {role: null, align: left, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Done, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: 'fa:times'}
   name: button_3
   layout_properties: {column: CTLJCC}
   event_bindings: {click: button_3_click}

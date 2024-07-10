@@ -28,3 +28,10 @@ def put_pizza_in_table(eventz_id,account,size,crust,toppings,price,status):
 def get_pizzas():
     # Fetch all rows from the pizzas table
     return app_tables.pizza_oven.search()
+
+@anvil.server.callable
+def put_account_in_table(eventz_id,phone,name,address,email):
+  action = 'None'
+  #pizza=Pizza(action,eventz_id,account,size,crust,toppings,price,status)
+  app_tables.pizza_oven.add_row(eventz_id=eventz_id,account_no=account,size=size, crust=crust, toppings=str(toppings), price=float(price),status=status)
+  print('369 finished inserting table')
