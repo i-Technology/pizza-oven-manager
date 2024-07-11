@@ -17,8 +17,8 @@ class Pizza_Oven(Pizza_OvenTemplate):
     self.init_components(**properties)
     self.nnn = 0
     
-    print("Launching Subscriber!")    
-    self.subscriber_task = anvil.server.call('launch_subscriber_task')
+    # print("Launching Subscriber!")    
+    # self.subscriber_task = anvil.server.call('launch_subscriber_task')
 
     print("Starting Timer")
     self.timer_1.interval = 1  # 1 second
