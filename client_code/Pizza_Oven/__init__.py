@@ -43,78 +43,78 @@ class Pizza_Oven(Pizza_OvenTemplate):
     # Make the change live
     self.data_grid_1.columns = self.data_grid_1.columns
 
+#   def timer_1_tick(self, **event_args):
+#     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
+#     # print("Tick")
+#     try:
+#       record_type = self.subscriber_task.get_state()["recordType"]
+#       if record_type != '':
+#         print(f'Record Type -> {record_type}')
+#         session_id = self.subscriber_task.get_state()["session"]
+#         if session_id != self.last_session_id:
+#           print(f"1 Session Id: {session_id}")
+#           anvil.server.call('set_session_id', session_id)
+#           records = self.subscriber_task.get_state()["records"]
+#           print(f"Record Type: {record_type}")
+#           print(f"Records List: {records}")
+#           for record in records:
+#             record_type = record['recordType']
+#             metadata = record['metadata']
+#             payload = record['payload']
+#             item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
+#             self.dg_items.append(item)
+#             print(f'Item Count: {len(self.dg_items)}')
+            
+#           self.repeating_panel_1.items = self.dg_items
+# #          self.repeating_panel_1.items = self.repeating_panel_1.items
+          
+#           self.last_session_id = session_id
+          
+#     except Exception as ex:
+#       print(f'Exception: {repr(ex)}')
+#       pass
+    
+#     pass
+
   def timer_1_tick(self, **event_args):
     """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-    # print("Tick")
-    try:
-      record_type = self.subscriber_task.get_state()["recordType"]
-      if record_type != '':
-        print(f'Record Type -> {record_type}')
-        session_id = self.subscriber_task.get_state()["session"]
-        if session_id != self.last_session_id:
-          print(f"1 Session Id: {session_id}")
-          anvil.server.call('set_session_id', session_id)
-          records = self.subscriber_task.get_state()["records"]
-          print(f"Record Type: {record_type}")
-          print(f"Records List: {records}")
-          for record in records:
-            record_type = record['recordType']
-            metadata = record['metadata']
-            payload = record['payload']
-            item = {'record_type': record_type, 'metadata': metadata, 'payload': payload,}
-            self.dg_items.append(item)
-            print(f'Item Count: {len(self.dg_items)}')
-            
-          self.repeating_panel_1.items = self.dg_items
-#          self.repeating_panel_1.items = self.repeating_panel_1.items
-          
-          self.last_session_id = session_id
-          
-    except Exception as ex:
-      print(f'Exception: {repr(ex)}')
-      pass
-    
-    pass
 
-  # def timer_1_tick(self, **event_args):
-  #   """This method is called Every [interval] seconds. Does not trigger if [interval] is 0."""
-
-  #   message =  anvil.server.call("get_message")
-  #  #print ('at 451', message)
-  #   self.nnn += 1
-  #   #print('687 Ticked to: ', self.nnn)
-  #   if message != 'None':
-  #     print('55a', message)
-  #     action = message[1]   # Could be out of range -- Nope! Can't get here.
-  #     print(f'57a {type(action)} -{action}-')
-  #     if action == 0:   # Process only New records. Ignore Updates and Deletes.       
-  #       record_type = message[0]   # 500001.00
-  #       if record_type == '500001.00':        
-  #         record_id = message[2]# '67fd1474-a823-42b7-802b-ad304a757022'
-  #         link_id = message[3] #  '00000000-0000-0000-0000-000000000000'
-  #         time = message[6]
-  #         account = message[16]
-  #         size = message[17]
-  #         crust = message[18]
-  #         toppings = message[19]
-  #         price = message[20]
-  #         status = message[21]
+    message =  anvil.server.call("get_message")
+   #print ('at 451', message)
+    self.nnn += 1
+    #print('687 Ticked to: ', self.nnn)
+    if message != 'None':
+      print('55a', message)
+      action = message[1]   # Could be out of range -- Nope! Can't get here.
+      print(f'57a {type(action)} -{action}-')
+      if action == 0:   # Process only New records. Ignore Updates and Deletes.       
+        record_type = message[0]   # 500001.00
+        if record_type == '500001.00':        
+          record_id = message[2]# '67fd1474-a823-42b7-802b-ad304a757022'
+          link_id = message[3] #  '00000000-0000-0000-0000-000000000000'
+          time = message[6]
+          account = message[16]
+          size = message[17]
+          crust = message[18]
+          toppings = message[19]
+          price = message[20]
+          status = message[21]
   
-  #         #print (record_type, record_id, link_id, time, account, size, crust, toppings, price, status)  # QC check
-  #         anvil.server.call ('put_pizza_in_table', record_id,account,size,crust,toppings,price,status)       
-  #         print('641 got here. Now refreshing data grid.')
+          #print (record_type, record_id, link_id, time, account, size, crust, toppings, price, status)  # QC check
+          anvil.server.call ('put_pizza_in_table', record_id,account,size,crust,toppings,price,status)       
+          print('641 got here. Now refreshing data grid.')
   
-  #         self.refresh_data_grid()
-  #       elif record_type == '500010.00':
-  #         record_id = message[2]# '67fd1474-a823-42b7-802b-ad304a757022'
-  #         link_id = message[3] #  '00000000-0000-0000-0000-000000000000'
-  #         time = message[6]
-  #         account = message[16]
-  #         name = message[17]
-  #         address = message[18]
-  #         email = message[19]
-  #         print (record_type, record_id, link_id, time, account, name, address, email)  # QC check
-  #         anvil.server.call('put_account_in_table', account, name, address,email)
+          self.refresh_data_grid()
+        elif record_type == '500010.00':
+          record_id = message[2]# '67fd1474-a823-42b7-802b-ad304a757022'
+          link_id = message[3] #  '00000000-0000-0000-0000-000000000000'
+          time = message[6]
+          account = message[16]
+          name = message[17]
+          address = message[18]
+          email = message[19]
+          print (record_type, record_id, link_id, time, account, name, address, email)  # QC check
+          anvil.server.call('put_account_in_table', account, name, address,email)
 
        
  #['500001.00', 0, '67fd1474-a823-42b7-802b-ad304a757022', '00000000-0000-0000-0000-000000000000', '00000000-0000-0000-0000-000000000000',
